@@ -6,10 +6,13 @@ for i in range(10):
 
 ##2
 number = int(input("Введите число от 1 до 9: "))
-print(f"Таблица умножения для числа {number}:")
-for i in range(1, 11):
-    result = number * i
-    print(f"{number} * {i} = {result}")
+if number>9 and number<0:
+    print:("не то число")
+else:    
+    print(f"Таблица умножения для числа {number}:")
+    for i in range(1, 11):
+        result = number * i
+        print(f"{number} * {i} = {result}")
 
 ##3
 print("Каждое третье число от 0 до 100:")
