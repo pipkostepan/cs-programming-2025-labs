@@ -93,6 +93,7 @@ else:
 z=s*(1-discount/100)
 print(f'Ваша скидка: {discount}%')
 print(f'К оплате: {z}руб')
+
 #Задание 9
 hour = int(input("Введите час: "))
 if 0 <= hour <= 5:
@@ -105,8 +106,6 @@ elif 18 <= hour <= 23:
     print("Вечер")
 else:
     print("Неверное время")
-
-
 
 #Задание 10
 n=int(input("Введите число: "))
