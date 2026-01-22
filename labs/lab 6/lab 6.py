@@ -43,4 +43,63 @@ def n(a, b):
             if ress:
                 res.append(num)
     return res
-
+# Задание 4
+def n():
+    try:
+        n = int(input())
+        if n <= 2:
+            return "Error!"
+        
+        # Читаем первую матрицу
+        m1 = []
+        for _ in range(n):
+            row = list(map(float, input().split()))
+            if len(row) != n:
+                return "Error!"
+            m1.append(row)
+        
+        # Читаем вторую матрицу
+        m2 = []
+        for _ in range(n):
+            row = list(map(float, input().split()))
+            if len(row) != n:
+                return "Error!"
+            m2.append(row)
+        
+        # Складываем
+        res = []
+        for i in range(n):
+            row = []
+            for j in range(n):
+                row.append(m1[i][j] + m2[i][j])
+            res.append(" ".join(str(int(x) if x.is_integer() else x) for x in row))
+        
+        return "\n".join(res)
+    except:
+        return "Error!"
+# Задание 5
+def zad5():
+    s = input()
+    
+    # Убираем пробелы и делаем все буквы маленькими
+    clean = ""
+    for char in s:
+        if char.isalpha():  # если это буква
+            clean += char.lower()
+    
+    # Проверяем, палиндром ли это
+    i = 0
+    j = len(clean) - 1
+    palindrom = True
+    
+    while i < j:
+        if clean[i] != clean[j]:
+            palindrom = False
+            break
+        i += 1
+        j -= 1
+    
+    if palindrom:
+        return "Да"
+    else:
+        return "Нет"
