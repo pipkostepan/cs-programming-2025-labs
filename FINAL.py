@@ -8,8 +8,12 @@ from datetime import datetime
 TANKS_FILE = "tanks.json"
 STATS_FILE = "stats.json"
 HISTORY_FILE = "history.json"
-…    6: ["АИ-92", "АИ-95", "АИ-98", "ДТ"],
-    7: ["АИ-95", "ДТ"],
-    8: ["АИ-95", "ДТ"]
-}
+SYSTEM_FILE = "system.json"  # ← НОВОЕ: для хранения состояния аварии
 
+# Цены на топливо (руб/л)
+PRICES = {
+    "АИ-92": 72.2,
+    "АИ-95": 73.3,
+    "АИ-98": 78.7,
+    "ДТ": 84.0
+}
