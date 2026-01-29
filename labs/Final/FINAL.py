@@ -33,8 +33,7 @@ COLUMNS = {
     8: ["АИ-95", "ДТ"]
 }
 
-def init_data():
-    """Инициализация данных при первом запуске"""
+def init_data():# Инициализация данных при первом запуске
     if not os.path.exists(TANKS_FILE):
         tanks = [
             {"fuel": "АИ-92", "number": 1, "max_volume": 20000, "current": 15000, "enabled": True},
@@ -46,7 +45,7 @@ def init_data():
         with open(TANKS_FILE, 'w', encoding='utf-8') as f:
             json.dump(tanks, f, ensure_ascii=False, indent=2)
 
-    if not os.path.exists(STATS_FILE):
+    if not os.path.exists(STATS_FILE): 
         stats = {
             "total_income": 0.0,
             "cars_served": 0,

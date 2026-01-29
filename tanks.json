@@ -1,0 +1,37 @@
+[
+  {
+    "fuel": "АИ-92",
+    "number": 1,
+    "max_volume": 20000,
+    "current": 15000,
+    "enabled": true
+  },
+  {
+    "fuel": "АИ-95",
+    "number": 1,
+    "max_volume": 20000,
+    "current": 18000,
+    "enabled": true
+  },
+  {
+    "fuel": "АИ-95",
+    "number": 2,
+    "max_volume": 20000,
+    "current": 1000,
+    "enabled": false
+  },
+  {
+    "fuel": "АИ-98",
+    "number": 1,
+    "max_volume": 15000,
+    "current": 10000,
+    "enabled": true
+  },
+  {
+    "fuel": "ДТ",
+    "number": 1,
+    "max_volume": 25000,
+    "current": 20000,
+    "enabled": true
+  }
+]
