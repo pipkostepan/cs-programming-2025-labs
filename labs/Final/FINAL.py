@@ -1,8 +1,8 @@
 # Система управления автозаправочной станцией (АЗС)
 
-import json
-import os
-from datetime import datetime
+import json 
+import os # подключает модуль для взаимодействия с операционной системой
+from datetime import datetime #импортирует только класс datetime из модуля datetime 
 
 # Файлы данных
 TANKS_FILE = "tanks.json" # состояние цистерн
@@ -72,23 +72,20 @@ def save_json(filename, data):
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-def log_event(event):
+def log_event(event): # добавляет метку времени к каждой записи в истории 
     history = load_json(HISTORY_FILE)
     history.append(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] {event}")
     save_json(HISTORY_FILE, history)
 
-def is_emergency():
-    """Проверяет, активен ли аварийный режим"""
+def is_emergency(): #Проверяет, активен ли аварийный режим
     return load_json(SYSTEM_FILE)["emergency"]
 
-def set_emergency(active=True):
-    """Устанавливает состояние аварийного режима"""
+def set_emergency(active=True): #Устанавливает состояние аварийного режима
     system = load_json(SYSTEM_FILE)
     system["emergency"] = active
     save_json(SYSTEM_FILE, system)
 
-def get_tank_for_column(column, fuel):
-    """Возвращает цистерну, подключенную к колонке и типу топлива"""
+def get_tank_for_column(column, fuel): # Возвращает цистерну, подключенную к колонке и типу топлива
     tanks = load_json(TANKS_FILE)
     if fuel == "АИ-92":
         return next((t for t in tanks if t["fuel"] == "АИ-92"), None)
@@ -103,8 +100,7 @@ def get_tank_for_column(column, fuel):
             return next((t for t in tanks if t["fuel"] == "АИ-95" and t["number"] == 2), None)
     return None
 
-def check_tanks_auto_disable():
-    """Автоматически отключает цистерны с уровнем ниже MIN_TANK_LEVEL"""
+def check_tanks_auto_disable(): #Автоматически отключает цистерны с уровнем ниже MIN_TANK_LEVEL
     tanks = load_json(TANKS_FILE)
     changed = False
     for tank in tanks:
@@ -115,8 +111,7 @@ def check_tanks_auto_disable():
     if changed:
         save_json(TANKS_FILE, tanks)
 
-def show_warnings():
-    """Показывает предупреждения о выключенных цистернах"""
+def show_warnings(): # Показывает предупреждения о выключенных цистернах
     tanks = load_json(TANKS_FILE)
     disabled = [t for t in tanks if not t["enabled"]]
     if disabled:
