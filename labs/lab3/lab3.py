@@ -7,7 +7,7 @@ for i in range(10):
 ##2
 number = int(input("Введите число от 1 до 9: "))
 if number>9 and number<0:
-    print:("не то число")
+    print("Введите другое число")
 else:    
     print(f"Таблица умножения для числа {number}:")
     for i in range(1, 11):
