@@ -5,10 +5,10 @@ import os
 from datetime import datetime
 
 # Файлы данных
-TANKS_FILE = "tanks.json"
-STATS_FILE = "stats.json"
-HISTORY_FILE = "history.json"
-SYSTEM_FILE = "system.json"  # ← НОВОЕ: для хранения состояния аварии
+TANKS_FILE = "tanks.json" # состояние цистерн
+STATS_FILE = "stats.json" # статистика продаж
+HISTORY_FILE = "history.json" # журнал событий
+SYSTEM_FILE = "system.json"  # для хранения состояния аварии
 
 # Цены на топливо (руб/л)
 PRICES = {
