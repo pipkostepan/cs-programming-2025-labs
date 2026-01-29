@@ -15,7 +15,11 @@ elif month == 6 or month == 7 or month == 8:
     print("Лето")
 elif month == 9 or month == 10 or month == 11:
     print("Осень")
+<<<<<<< HEAD
 print("Неверный номер месяца")
+=======
+    print("Неверный номер месяца")
+>>>>>>> 7e26c4cdbe3672743b52cad4a34e83e66b4de0ae
 
 #Задание 3
 try:
