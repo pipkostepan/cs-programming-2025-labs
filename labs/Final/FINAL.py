@@ -34,7 +34,7 @@ COLUMNS = {
 }
 
 def init_data():# Инициализация данных при первом запуске
-    if not os.path.exists(TANKS_FILE):
+    if not os.path.exists(TANKS_FILE):# Проверяет существует ли файл и дирекция
         tanks = [
             {"fuel": "АИ-92", "number": 1, "max_volume": 20000, "current": 15000, "enabled": True},
             {"fuel": "АИ-95", "number": 1, "max_volume": 20000, "current": 18000, "enabled": True},
@@ -43,7 +43,7 @@ def init_data():# Инициализация данных при первом з
             {"fuel": "ДТ",    "number": 1, "max_volume": 25000, "current": 20000, "enabled": True}
         ]
         with open(TANKS_FILE, 'w', encoding='utf-8') as f:
-            json.dump(tanks, f, ensure_ascii=False, indent=2)
+            json.dump(tanks, f, ensure_ascii=False, indent=2)# Сохранение данных 
 
     if not os.path.exists(STATS_FILE): 
         stats = {
@@ -109,8 +109,8 @@ def check_tanks_auto_disable(): #Автоматически отключает �
             log_event(f"Цистерна {tank['fuel']} №{tank['number']} отключена (низкий уровень)")
     if changed:
         save_json(TANKS_FILE, tanks)
-
-def show_warnings(): # Показывает предупреждения о выключенных цистернах
+# Показывает предупреждения о выключенных цистернах
+def show_warnings():
     tanks = load_json(TANKS_FILE)
     disabled = [t for t in tanks if not t["enabled"]]
     if disabled:
