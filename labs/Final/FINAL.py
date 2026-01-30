@@ -522,7 +522,7 @@ def main():
     while True:
         check_tanks_auto_disable()
         main_menu()
-        choice = input("> ").strip()
+        choice = input("> ").strip() #strip убирает пробелы в начале и конце строки
 
         if is_emergency():
             if choice == "9":
